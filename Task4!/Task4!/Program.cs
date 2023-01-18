@@ -26,7 +26,13 @@ namespace Task4_
                     goto label2;
                 }
                 Console.Write($"{i + 1})Kitabin nesr ilini daxil edin :");
+                label3:
                 s.nesr = yoxlama3();
+                if (s.nesr>2023)
+                {
+                    Console.WriteLine("Duzgun daxil edin");
+                    goto label3;
+                }
                 kitab[i] = s;
             }
             Console.WriteLine("--------------------");
@@ -34,12 +40,33 @@ namespace Task4_
             {
                 Console.WriteLine(item);
             }
-
             label1:
-            Console.WriteLine("Nusxe yaratmaq isdeyirsizse 1-e basin eks halda 0-a basin");
-            int c= yoxlama4();
-            
-         
+            Console.WriteLine("Kitabin nusxesini cap etmek isdeyirsizse 1-e eks halda 0-a basin");
+            int test = yoxlama4();
+            int copyer = ArrayChecker(a,test);
+            if (copyer == -1) { goto label1;}
+            else if(test!=0)
+            {
+                Console.WriteLine("Nece eded nusxe isdeyirsiz?");
+                
+                kitab[copyer - 1].nusxe = yoxlama();
+            }
+            else
+            {     
+               throw new Exception("Program bitdi");
+            }
+            Console.WriteLine($"Nusxe sayi :"+ kitab[copyer-1].nusxe);
+      
+
+
+            Console.WriteLine("           Nusxesi yaradilacaq kitab ");
+            Console.WriteLine( " Eser :"  + kitab[copyer - 1].eser );
+            Console.WriteLine( " Muellif :" + kitab[copyer - 1].muellif);
+            Console.WriteLine( " Nesr ili  :" + kitab[copyer - 1].nesr);
+            Console.WriteLine( " Sehife sayi  :" + kitab[copyer - 1].sehife);
+            goto label1;
+
+
         }
        
 
@@ -105,23 +132,43 @@ namespace Task4_
             if (b == 1)
             {
                 Console.WriteLine("Hansi eserin nusxesini isdeyirsiz? ");
-                string c = Console.ReadLine();
+                int c = yoxlama();
+                return c;
 
             }
             else if (b==0)
             {
                 Console.WriteLine("Umid edirik size komek ola bildik");
+                Console.WriteLine("-----------------------------");
+                
+                return b;
+                
             }
             else
             {
                 Console.WriteLine("Yanlis!");
                 goto label1;
             }
-            return b;
+            
+            
             
         }
-        
-       
+        internal static int ArrayChecker(int limit, int copy)
+        {
+
+            if (limit < copy)
+            {
+                Console.WriteLine("daxil ettdiyiniz melumat tapilmadi");
+                return -1;
+            }
+            else
+            {
+                return copy;
+            }
+
+        }
+
+
     }    
 	
 }

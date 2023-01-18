@@ -7,7 +7,7 @@
         internal string eser;
         internal int nesr;
         internal int sehife;
-        internal string nusxe;
+        internal int nusxe;
 
         public override string ToString()
         {
