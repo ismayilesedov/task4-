@@ -6,7 +6,8 @@ namespace Task4_
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("           programa xosh gelmisiniz");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("     Programa xosh gelmisniz ");
             Console.Write("Nece kitab yaratmaq isdeyirsiz :");
             int a = yoxlama();
             book[] kitab = new book[a];
@@ -54,6 +55,7 @@ namespace Task4_
             else
             {     
                throw new Exception("Program bitdi");
+                
             }
             Console.WriteLine($"Nusxe sayi :"+ kitab[copyer-1].nusxe);
       
