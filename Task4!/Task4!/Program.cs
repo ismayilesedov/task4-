@@ -8,6 +8,7 @@ namespace Task4_
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("     Programa xosh gelmisniz ");
+            label8:
             Console.Write("Nece kitab yaratmaq isdeyirsiz :");
             int a = yoxlama();
             book[] kitab = new book[a];
@@ -42,7 +43,7 @@ namespace Task4_
                 Console.WriteLine(item);
             }
             label1:
-            Console.WriteLine("Kitabin nusxesini cap etmek isdeyirsizse 1-e eks halda 0-a basin");
+            Console.WriteLine("Kitabin nusxesini cap etmek isdeyirsizse 1-e ana sehife ucun 0-a basin");
             int test = yoxlama4();
             int copyer = ArrayChecker(a,test);
             if (copyer == -1) { goto label1;}
@@ -53,8 +54,9 @@ namespace Task4_
                 kitab[copyer - 1].nusxe = yoxlama();
             }
             else
-            {     
-               throw new Exception("Program bitdi");
+            {
+                Console.Clear();
+                goto label8;
                 
             }
             Console.WriteLine($"Nusxe sayi :"+ kitab[copyer-1].nusxe);
